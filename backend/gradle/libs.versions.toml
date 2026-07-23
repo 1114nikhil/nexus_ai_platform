@@ -1,0 +1,41 @@
+[versions]
+
+java = "21"
+
+spring-boot = "4.0.0-M2"
+
+dependency-management = "1.1.7"
+
+junit = "5.13.4"
+
+lombok = "1.18.42"
+
+mapstruct = "1.6.3"
+
+postgres = "42.7.8"
+
+kafka = "4.1.0"
+
+testcontainers = "1.21.3"
+
+[libraries]
+
+spring-boot-starter ={ module="org.springframework.boot:spring-boot-starter" }
+
+spring-boot-web ={ module="org.springframework.boot:spring-boot-starter-web" }
+
+spring-boot-test ={ module="org.springframework.boot:spring-boot-starter-test" }
+
+lombok ={ module="org.projectlombok:lombok", version.ref="lombok" }
+
+mapstruct ={ module="org.mapstruct:mapstruct", version.ref="mapstruct" }
+
+postgres ={ module="org.postgresql:postgresql", version.ref="postgres" }
+
+junit ={ module="org.junit.jupiter:junit-jupiter", version.ref="junit" }
+
+[plugins]
+
+springboot ={ id="org.springframework.boot", version.ref="spring-boot" }
+
+dependency-management ={ id="io.spring.dependency-management", version.ref="dependency-management" }
