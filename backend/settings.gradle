@@ -1,0 +1,38 @@
+rootProject.name = "nexus-ai-platform-backend"
+/*
+ * Include Build Logic
+ */
+includeBuild("build-logic")
+
+dependencyResolutionManagement {
+
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+// ==========================
+// Common Libraries
+// ==========================
+include("common:common-core")
+include("common:common-events")
+include("common:common-exception")
+include("common:common-security")
+include("common:common-validation")
+
+
+// ==========================
+// Platform Services
+// ==========================
+include("platform:api-gateway")
+include("platform:config-server")
+include("platform:discovery-server")
+
+
+// ==========================
+// Business Services
+// ==========================
+include("business:identity-service")
+include("business:organization-service")
