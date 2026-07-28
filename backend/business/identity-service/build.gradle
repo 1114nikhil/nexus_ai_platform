@@ -1,3 +1,10 @@
 plugins {
     id "com.nexus.spring-service"
 }
+
+dependencies{
+    implementation project(":common:common-core")
+    implementation project(":common:common-security")
+    implementation project(":common:common-validation")
+    implementation project(":common:common-exception")
+}

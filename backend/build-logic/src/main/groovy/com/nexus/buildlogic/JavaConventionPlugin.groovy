@@ -13,12 +13,12 @@ class JavaConventionPlugin implements Plugin<Project> {
 
         project.pluginManager.apply(JavaPlugin)
 
-        project.extensions.configure(JavaPluginExtension) {
+        JavaPluginExtension java =
+                project.extensions.getByType(JavaPluginExtension)
 
-            toolchain {
-                languageVersion = JavaLanguageVersion.of(21)
-            }
-        }
+        java.toolchain.languageVersion.set(
+                JavaLanguageVersion.of(21)
+        )
 
         project.tasks.withType(Test).configureEach {
 

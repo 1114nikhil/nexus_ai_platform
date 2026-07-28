@@ -23,5 +23,13 @@ class SpringServicePlugin implements Plugin<Project> {
                 "testImplementation",
                 "org.springframework.boot:spring-boot-starter-test"
         )
+//we need to remove once add the application class
+//        project.tasks.named("bootJar") {
+//            enabled = false
+//        }
+//
+//        project.tasks.named("jar") {
+//            enabled = true
+//        }
     }
 }

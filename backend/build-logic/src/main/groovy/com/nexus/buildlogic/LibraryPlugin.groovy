@@ -9,8 +9,9 @@ class LibraryPlugin implements Plugin<Project> {
     @Override
     void apply(Project project) {
 
+        println ">>> Applying LibraryPlugin to ${project.path}"
+
         project.pluginManager.apply(JavaConventionPlugin)
         project.pluginManager.apply(JavaLibraryPlugin)
-
     }
 }

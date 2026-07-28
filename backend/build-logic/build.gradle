@@ -1,5 +1,6 @@
 plugins {
     id 'groovy-gradle-plugin'
+    id 'java-gradle-plugin'
 }
 
 repositories {
@@ -12,4 +13,28 @@ dependencies {
     implementation localGroovy()
 
     implementation "org.springframework.boot:spring-boot-gradle-plugin:4.0.0-M2"
+}
+
+gradlePlugin {
+    plugins {
+        javaConventions {
+            id = "com.nexus.java-conventions"
+            implementationClass = "com.nexus.buildlogic.JavaConventionPlugin"
+        }
+
+        library {
+            id = "com.nexus.library"
+            implementationClass = "com.nexus.buildlogic.LibraryPlugin"
+        }
+
+        springService {
+            id = "com.nexus.spring-service"
+            implementationClass = "com.nexus.buildlogic.SpringServicePlugin"
+        }
+
+        testConventions {
+            id = "com.nexus.test-conventions"
+            implementationClass = "com.nexus.buildlogic.TestConventionsPlugin"
+        }
+    }
 }
