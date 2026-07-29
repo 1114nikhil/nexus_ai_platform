@@ -20,6 +20,10 @@ class SpringServicePlugin implements Plugin<Project> {
         )
         project.dependencies.add(
                 "implementation",
+                "org.springframework.boot:spring-boot-starter-web"
+        )
+        project.dependencies.add(
+                "implementation",
                 "org.springframework.boot:spring-boot-starter-validation"
         )
 
