@@ -24,6 +24,8 @@ spring-boot-starter ={ module="org.springframework.boot:spring-boot-starter" }
 
 spring-boot-web ={ module="org.springframework.boot:spring-boot-starter-web" }
 
+spring-boot-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
+
 spring-boot-test ={ module="org.springframework.boot:spring-boot-starter-test" }
 
 lombok ={ module="org.projectlombok:lombok", version.ref="lombok" }

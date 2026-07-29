@@ -8,8 +8,12 @@
       <sourceFolder url="file://$MODULE_DIR$/backend/platform/api-gateway/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/backend/platform/config-server/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/backend/platform/discovery-server/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/backend/business/identity-service/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/backend/business/organization-service/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/backend/platform/api-gateway/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/backend/platform/config-server/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/backend/platform/discovery-server/src/main/resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/backend/business/identity-service/src" />
-      <excludeFolder url="file://$MODULE_DIR$/backend/business/identity-service/src/main/java/com/nexus/identity" />
       <excludeFolder url="file://$MODULE_DIR$/backend/business/organization-service/src" />
     </content>
     <orderEntry type="inheritedJdk" />

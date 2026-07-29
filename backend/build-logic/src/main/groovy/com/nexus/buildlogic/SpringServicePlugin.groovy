@@ -18,10 +18,37 @@ class SpringServicePlugin implements Plugin<Project> {
                 "implementation",
                 "org.springframework.boot:spring-boot-starter"
         )
+        project.dependencies.add(
+                "implementation",
+                "org.springframework.boot:spring-boot-starter-validation"
+        )
 
         project.dependencies.add(
                 "testImplementation",
                 "org.springframework.boot:spring-boot-starter-test"
+        )
+        project.dependencies.add(
+                "compileOnly",
+                "org.projectlombok:lombok"
+        )
+
+        project.dependencies.add(
+                "annotationProcessor",
+                "org.projectlombok:lombok"
+        )
+
+        project.dependencies.add(
+                "testCompileOnly",
+                "org.projectlombok:lombok"
+        )
+
+        project.dependencies.add(
+                "testAnnotationProcessor",
+                "org.projectlombok:lombok"
+        )
+        project.dependencies.add(
+                "implementation",
+                "org.springframework.boot:spring-boot-starter-actuator"
         )
 //we need to remove once add the application class
 //        project.tasks.named("bootJar") {
