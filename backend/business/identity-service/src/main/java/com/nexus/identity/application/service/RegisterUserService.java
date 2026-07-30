@@ -14,7 +14,7 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class RegisterUserService implements RegisterUserUseCase {
-    private UserRepositoryPort repositoryPort;
+    private final UserRepositoryPort repositoryPort;
 
     @Override
     public UserResponse register(RegisterRequest request) {
