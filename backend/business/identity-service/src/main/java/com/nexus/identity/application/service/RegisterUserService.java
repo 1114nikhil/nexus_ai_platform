@@ -8,6 +8,7 @@ import com.nexus.identity.domain.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Service
@@ -22,6 +23,8 @@ public class RegisterUserService implements RegisterUserUseCase {
                 .firstName(request.firstName)
                 .lastName(request.lastName)
                 .email(request.email)
+                .active(true)
+                .createdAt(LocalDateTime.now())
                 .password(request.password)
                 .build();
         User saved = repositoryPort.save(user);
