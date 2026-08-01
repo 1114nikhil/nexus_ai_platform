@@ -16,6 +16,8 @@ postgres = "42.7.8"
 
 kafka = "4.1.0"
 
+jjwt = "0.12.7"
+
 testcontainers = "1.21.3"
 
 [libraries]
@@ -28,11 +30,19 @@ spring-boot-validation = { module = "org.springframework.boot:spring-boot-starte
 
 spring-boot-test ={ module="org.springframework.boot:spring-boot-starter-test" }
 
+spring-boot-security={module="org.springframework.boot:spring-boot-starter-security"}
+
 lombok ={ module="org.projectlombok:lombok", version.ref="lombok" }
 
 mapstruct ={ module="org.mapstruct:mapstruct", version.ref="mapstruct" }
 
 postgres ={ module="org.postgresql:postgresql", version.ref="postgres" }
+
+jjwt-api = {module="io.jsonwebtoken:jjwt-api",version.ref="jjwt"}
+
+jjwt-impl = {module="io.jsonwebtoken:jjwt-impl",version.ref="jjwt"}
+
+jjwt-jackson = {module="io.jsonwebtoken:jjwt-jackson",version.ref="jjwt"}
 
 junit ={ module="org.junit.jupiter:junit-jupiter", version.ref="junit" }
 

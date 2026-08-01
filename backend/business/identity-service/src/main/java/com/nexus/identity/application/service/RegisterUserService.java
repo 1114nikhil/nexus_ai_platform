@@ -1,5 +1,6 @@
 package com.nexus.identity.application.service;
 
+import com.nexus.common.domain.valueobject.Email;
 import com.nexus.identity.api.request.RegisterRequest;
 import com.nexus.identity.api.response.UserResponse;
 import com.nexus.identity.application.port.in.RegisterUserUseCase;
@@ -22,7 +23,7 @@ public class RegisterUserService implements RegisterUserUseCase {
                 .id(UUID.randomUUID())
                 .firstName(request.firstName)
                 .lastName(request.lastName)
-                .email(request.email)
+                .email(new Email(request.email))
                 .active(true)
                 .createdAt(LocalDateTime.now())
                 .password(request.password)
@@ -33,7 +34,7 @@ public class RegisterUserService implements RegisterUserUseCase {
                 saved.getId(),
                 saved.getFirstName(),
                 saved.getLastName(),
-                saved.getEmail()
+                saved.getEmail().value()
         );
     }
 }

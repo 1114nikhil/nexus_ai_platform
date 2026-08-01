@@ -25,4 +25,8 @@ public class UserEntity {
     private String password;
     private boolean active;
     private LocalDateTime createdAt;
+    private boolean accountNonExpired;
+    private boolean accountNonLocked;
+    private boolean credentialsNonExpired;
+    private boolean enabled;
 }
