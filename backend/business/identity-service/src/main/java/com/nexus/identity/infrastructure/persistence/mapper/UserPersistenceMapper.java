@@ -1,6 +1,7 @@
 package com.nexus.identity.infrastructure.persistence.mapper;
 
 import com.nexus.common.domain.valueobject.Email;
+import com.nexus.common.domain.valueobject.Password;
 import com.nexus.identity.domain.model.User;
 import com.nexus.identity.infrastructure.persistence.entity.UserEntity;
 import org.springframework.stereotype.Component;
@@ -16,7 +17,7 @@ public class UserPersistenceMapper {
         entity.setId(user.getId());
         entity.setFirstName(user.getFirstName());
         entity.setLastName(user.getLastName());
-        entity.setPassword(user.getPassword());
+        entity.setPassword(user.getPassword().value());
         entity.setEmail(user.getEmail().value());
         entity.setActive(user.isActive());
         entity.setCreatedAt(user.getCreatedAt());
@@ -45,7 +46,7 @@ public class UserPersistenceMapper {
                 entity.getFirstName(),
                 entity.getLastName(),
                 new Email(entity.getEmail()),
-                entity.getPassword(),
+                new Password(entity.getPassword()),
                 entity.isActive(),
                 entity.getCreatedAt(),
                 entity.isAccountNonExpired(),

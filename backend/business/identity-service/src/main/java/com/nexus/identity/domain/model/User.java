@@ -1,6 +1,7 @@
 package com.nexus.identity.domain.model;
 
 import com.nexus.common.domain.valueobject.Email;
+import com.nexus.common.domain.valueobject.Password;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -14,7 +15,7 @@ public class User {
     private String firstName;
     private String lastName;
     private Email email;
-    private String password;
+    private Password password;
     private boolean active;
     private LocalDateTime createdAt;
     private boolean accountNonExpired = true;
@@ -30,7 +31,7 @@ public class User {
             String firstName,
             String lastName,
             Email email,
-            String encodedPassword
+            Password encodedPassword
     ) {
 
         User user = new User();
@@ -60,7 +61,7 @@ public class User {
             String firstName,
             String lastName,
             Email email,
-            String password,
+            Password password,
             boolean active,
             LocalDateTime createdAt,
             boolean accountNonExpired,
