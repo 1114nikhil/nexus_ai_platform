@@ -1,6 +1,5 @@
 package com.nexus.identity.api.controller;
 
-import com.nexus.identity.api.request.RegisterRequest;
 import com.nexus.identity.api.response.UserResponse;
 import com.nexus.identity.application.port.in.RegisterUserUseCase;
 import com.nexus.identity.domain.model.User;

@@ -25,4 +25,9 @@ logging:
   level:
     root: INFO
 
+jwt:
+  secret: 8v4aF7mY2sLkP9zQx1rN6uW3cH8jT5eV9bK2mD7pR4yX6nL1qS0fG3hJ8tY5uC2
+  access-token-expiration: 3600000
+  refresh-token-expiration: 604800000
+
 

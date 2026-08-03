@@ -22,12 +22,12 @@ public class SecurityUser implements UserDetails {
 
     @Override
     public @Nullable String getPassword() {
-        return user.getPassword();
+        return user.getPassword().value();
     }
 
     @Override
     public String getUsername() {
-        return user.getEmail();
+        return user.getEmail().value();
     }
 
     @Override
@@ -47,7 +47,7 @@ public class SecurityUser implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return user.isEnable();
+        return user.isEnabled();
     }
 
     public User getUser(){

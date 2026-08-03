@@ -46,7 +46,7 @@ public class UserPersistenceMapper {
                 entity.getFirstName(),
                 entity.getLastName(),
                 new Email(entity.getEmail()),
-                new Password(entity.getPassword()),
+                Password.encoded(entity.getPassword()),
                 entity.isActive(),
                 entity.getCreatedAt(),
                 entity.isAccountNonExpired(),
