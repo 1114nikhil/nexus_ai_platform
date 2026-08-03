@@ -1,9 +1,11 @@
 package com.nexus.identity.api.controller;
 
+import com.nexus.common.domain.model.AuthenticatedUser;
 import com.nexus.identity.api.response.UserResponse;
 import com.nexus.identity.application.port.in.RegisterUserUseCase;
 import com.nexus.identity.domain.model.User;
 import com.nexus.identity.infrastructure.persistence.mapper.UserResponseMapper;
+import com.nexus.identity.infrastructure.security.CurrentUser;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,5 +24,10 @@ public class AuthController {
     public UserResponse register(@Valid @RequestBody RegisterRequest request){
         User user = registerUserUseCase.register(request);
         return userResponseMapper.toResponse(user);
+    }
+
+    @GetMapping("/me")
+    public UserResponse(@CurrentUser AuthenticatedUser authenticatedUser){
+        return ser;
     }
 }
