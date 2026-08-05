@@ -3,12 +3,9 @@ package com.nexus.identity.infrastructure.security;
 import com.nexus.common.domain.model.AuthenticatedUser;
 import com.nexus.common.domain.security.TokenType;
 import com.nexus.common.domain.valueobject.AccessToken;
-import com.nexus.common.domain.valueobject.Email;
 import com.nexus.common.domain.valueobject.RefreshToken;
 import com.nexus.identity.application.port.out.TokenProvider;
-import com.nexus.identity.domain.model.Roles;
 import com.nexus.identity.domain.model.User;
-import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
 import org.jspecify.annotations.NonNull;
 import org.springframework.stereotype.Component;
@@ -36,7 +33,7 @@ public class JwtTokenProvider implements TokenProvider {
         return new JwtClaims(
                 user.getId(),
                 user.getEmail(),
-                user.getRoles().stream().map(Roles::getName).collect(Collectors.toSet()),
+                user.getRoles(),
                 null,
                 TokenType.ACCESS
         );

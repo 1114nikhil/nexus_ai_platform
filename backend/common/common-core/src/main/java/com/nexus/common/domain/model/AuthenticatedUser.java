@@ -8,7 +8,7 @@ import java.util.UUID;
 public record AuthenticatedUser(
         UUID userId,
         Email email,
-        Set<Roles> roles,
+        Set<Role> roles,
         UUID tenantId
 ) {
 }

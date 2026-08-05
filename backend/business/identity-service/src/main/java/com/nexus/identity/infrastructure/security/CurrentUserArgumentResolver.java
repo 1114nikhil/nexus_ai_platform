@@ -1,7 +1,7 @@
 package com.nexus.identity.infrastructure.security;
 
 import com.nexus.common.domain.model.AuthenticatedUser;
-import com.nexus.common.domain.model.Roles;
+import com.nexus.common.domain.model.Role;
 import org.jspecify.annotations.Nullable;
 import org.springframework.core.MethodParameter;
 import org.springframework.security.core.Authentication;
@@ -13,30 +13,34 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 
 import java.util.stream.Collectors;
 
-public class CurrentUserArgumentResolver implements HandlerMethodArgumentResolver {
+public class CurrentUserArgumentResolver
+        implements HandlerMethodArgumentResolver {
+
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
-        return parameter.hasParameterAnnotation(CurrentUser.class)&&parameter.getParameterType().equals(AuthenticatedUser.class);
+
+        return parameter.hasParameterAnnotation(CurrentUser.class)
+                && parameter.getParameterType().equals(AuthenticatedUser.class);
+
     }
 
     @Override
-    public AuthenticatedUser resolveArgument(
+    public Object resolveArgument(
             MethodParameter parameter,
             @Nullable ModelAndViewContainer mavContainer,
             NativeWebRequest webRequest,
-            @Nullable WebDataBinderFactory binderFactory) throws Exception {
+            @Nullable WebDataBinderFactory binderFactory
+    ) {
 
-        Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
-        if(authentication==null){
+        Authentication authentication =
+                SecurityContextHolder
+                        .getContext()
+                        .getAuthentication();
+
+        if (authentication == null) {
             return null;
         }
 
-        SecurityUser securityUser=(SecurityUser) authentication.getPrincipal();
-        return new AuthenticatedUser(
-                securityUser.getUser().getId(),
-                securityUser.getUser().getEmail(),
-                securityUser.getUser().getRoles().stream().map(roles -> Roles.valueOf(roles.getName())).collect(Collectors.toSet()),
-                null
-        );
+        return authentication.getPrincipal();
     }
 }

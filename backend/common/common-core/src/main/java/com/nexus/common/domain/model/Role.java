@@ -1,5 +1,5 @@
 package com.nexus.common.domain.model;
 
-public enum Roles {
+public enum Role {
     ADMIN,USER,SUPER_ADMIN
 }

@@ -1,5 +1,6 @@
 package com.nexus.identity.domain.model;
 
+import com.nexus.common.domain.model.Role;
 import com.nexus.common.domain.valueobject.Email;
 import com.nexus.common.domain.valueobject.Password;
 import lombok.*;
@@ -22,7 +23,7 @@ public class User {
     private boolean accountNonLocked= true;
     private boolean credentialsNonExpired = true;
     private boolean enabled = true;
-    private Set<Roles> roles;
+    private Set<Role> roles;
 
     /**
      * Factory method for new user registration.
@@ -68,7 +69,7 @@ public class User {
             boolean accountNonLocked,
             boolean credentialsNonExpired,
             boolean enabled,
-            Set<Roles> roles
+            Set<Role> roles
     ) {
 
         User user = new User();

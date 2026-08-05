@@ -1,11 +1,13 @@
 package com.nexus.identity.api.controller;
 
-import com.nexus.common.domain.model.AuthenticatedUser;
+import com.nexus.identity.api.request.LoginRequest;
+import com.nexus.identity.api.request.RegisterRequest;
+import com.nexus.identity.api.response.LoginResponse;
 import com.nexus.identity.api.response.UserResponse;
+import com.nexus.identity.application.port.in.AuthenticationUseCase;
 import com.nexus.identity.application.port.in.RegisterUserUseCase;
 import com.nexus.identity.domain.model.User;
-import com.nexus.identity.infrastructure.persistence.mapper.UserResponseMapper;
-import com.nexus.identity.infrastructure.security.CurrentUser;
+import com.nexus.identity.api.mapper.UserResponseMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,6 +20,7 @@ public class AuthController {
     private final RegisterUserUseCase registerUserUseCase;
 
     private final UserResponseMapper userResponseMapper;
+    private final AuthenticationUseCase authenticationUseCase;
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
@@ -26,8 +29,14 @@ public class AuthController {
         return userResponseMapper.toResponse(user);
     }
 
-    @GetMapping("/me")
-    public UserResponse(@CurrentUser AuthenticatedUser authenticatedUser){
-        return ser;
+//    @GetMapping("/me")
+//    public UserResponse(@CurrentUser AuthenticatedUser authenticatedUser){
+//        return ser;
+//    }
+
+    @PostMapping("/login")
+    public LoginResponse login(@Valid @RequestBody LoginRequest request){
+        return authenticationUseCase.login(request);
     }
+
 }
